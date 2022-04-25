@@ -24,6 +24,12 @@ let Rana_salary=(getRndInteger(500,1000));
 let employee1= new Employees("1000","Ghazi Samer","Administration","Senior","./pics/E2.png",Ghazi_salary);
 let employee2= new Employees("1003","Safi Walid","Administration","Mid-Senior","./pics/E1.jpg",Safi_salary);
 let employee3= new Employees("1005","Rana Saleh", "Development","Junior","./pics/E1.jpg",Rana_salary);
+let employee4= new Employees("1000","Ghazi Samer","Administration","Senior","./pics/E2.png",Ghazi_salary);
+let employee5= new Employees("1000","Ghazi Samer","Administration","Senior","./pics/E2.png",Ghazi_salary);
+let employee6= new Employees("1000","Ghazi Samer","Administration","Senior","./pics/E2.png",Ghazi_salary);
+let employee7= new Employees("1000","Ghazi Samer","Administration","Senior","./pics/E2.png",Ghazi_salary);
+
+
 
 //create render function
 Employees.prototype.render=function(){

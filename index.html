@@ -31,9 +31,7 @@
     padding: 10px;
    
   }
-  main{
-    text-align: center;
-  }
+
           footer{
     position: fixed;
     left: 0;
@@ -88,8 +86,39 @@
       </header>
       <main>
 
-        <script src="./app.js"></script>
+     <!--  <script src="./app.js"></script> -->  
+        <script src="./HR.js"></script>
+        <form>
+            <label for="fname">Full Name:</label>
+            <input type="text" id="fname" name="fname"><br>
 
+            <p> Choose your Department: </p>
+            <input type="radio" id="Administration" name="Department " value="Administration">
+            <label for="Administration">Administration</label><br>
+            <input type="radio" id="Marketing" name="Department " value="Marketing">
+            <label for="Marketing">Marketing</label><br>
+            <input type="radio" id="Development" name="Department " value="Development">
+            <label for="Development">Development</label><br>
+            <input type="radio" id="Finance" name="Department " value="Finance">
+            <label for="Finance">Finance</label>
+
+            <p> Choose your Level: </p>
+            <input type="radio" id="Junior" name="Level  " value="Junior">
+            <label for="Junior">Junior</label><br>
+            <input type="radio" id="Mid-Senior" name="Level " value="Mid-Senior">
+            <label for="Mid-Senior">Mid-Senior</label><br>
+            <input type="radio" id="Senior" name="Level" value="Senior">
+            <label for="Senior">Senior</label><br>
+            <br>
+            <label for="image">image</label>
+            <input type="image" id="image" name="image"><br>
+            <br>
+
+           <!--  <input type="submit" value="Submit"> -->
+            <button id="submit">submit</button>
+
+
+       </form>
 
       </main>
       <footer>
