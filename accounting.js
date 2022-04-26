@@ -1,6 +1,6 @@
 "use strict";
-
-//create a constructor
+ let table=document.getElementById("ID1");
+ //create a constructor
 let all_Employees=[];
 function Employees(EmployeeID, FullName, Department, level, ImageURL, Salary){
 this.EmployeeID= EmployeeID;
@@ -31,24 +31,8 @@ let employee7= new Employees("1006","Hadi Ahmad","Finance","Mid-Senior","./pics/
 
 
 
-//create render function
-Employees.prototype.render=function(){
- //    document.write(`<p><b>Employee Name:</b> ${this.FullName},  <b>Employee Salay: </b> ${this.Salary} </p>`);
- let header=document.createElement("h4");
- header.textContent=this.FullName
-    
-   
+Employees.prototype.renderTable=function(){
+
 }
 
-/* employee1.render();
-employee2.render();
-employee3.render();
-employee4.render();
-employee5.render();
-employee6.render();
-employee7.render(); */
 
-
-
-
-console.log(all_Employees);
