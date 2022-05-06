@@ -1,6 +1,7 @@
 "use strict";
 
 //create a constructor
+
 let all_Employees=[];
 function Employees(EmployeeID, FullName, Department, level, ImageURL, Salary){
 this.EmployeeID= EmployeeID;
@@ -37,6 +38,7 @@ function renderAll(){
   for(let i=0; i<all_Employees.length; i++){
     if(all_Employees[i].level=='Senior'){
       all_Employees[i].randomSalary(1500,2000);
+      
     }else if(all_Employees[i].level=='Mid-Senior'){
       all_Employees[i].randomSalary(1000,1500);
 
@@ -76,8 +78,3 @@ employee5.render();
 employee6.render();
 employee7.render(); */
 
-
-
-
-
-//console.log(all_Employees);
