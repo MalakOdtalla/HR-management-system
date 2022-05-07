@@ -73,10 +73,10 @@ Employees.prototype.renderId=function(){
 
 //create render function
 Employees.prototype.render=function(){
-  let card=document.createElement('div');
+/*   let card=document.createElement('div');
   card.setAttribute('class','card');
   EmployeeDiv.appendChild(card);
-
+ */
 
      
 
