@@ -1,38 +1,110 @@
 "use strict";
- let table=document.getElementById("ID1");
- //create a constructor
+
+ let table=document.getElementById("table1");
+ //console.log(table);
+
+
+//create a constructor
 let all_Employees=[];
-function Employees(EmployeeID, FullName, Department, level, ImageURL, Salary){
-this.EmployeeID= EmployeeID;
+function Employees(FullName, Department, level, ImageURL){
+//this.EmployeeID= EmployeeID;
 this.FullName=FullName ;
 this.Department=Department ;
 this.level=level ;
 this.ImageURL=ImageURL ;
-this.Salary=Salary ;
+//this.Salary=Salary ;
 all_Employees.push(this)
 }
 
-//Generate a random salary
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+
+
+
+
+
+
+let employee1= new Employees("Ghazi Samer","Administration","Senior","assets/Ghazi.jpg");
+let employee2= new Employees("Lana Ali","Finance","Senior","assets/Lana.jpg");
+let employee3= new Employees("Tamara Ayoub	", "Marketing","Senior","assets/Tamara.jpg");
+let employee4= new Employees("Safi Walid","Administration","Mid-Senior","assets/Safi.jpg");
+let employee5= new Employees("Omar Zaid","Development","Senior","assets/Omar.jpg");
+let employee6= new Employees("Rana Saleh","Development","Junior","assets/Rana.jpg");
+let employee7= new Employees("Hadi Ahmad","Finance","Mid-Senior","assets/Hadi.jpg");
+
+
+
+
+//Generate a salary
+Employees.prototype.renderAll=function(){
+ // for(let i=0; i<all_Employees.length; i++){
+    if(this.level=='Senior'){
+     // all_Employees[i].randomSalary(1500,2000);
+      return Math.floor(Math.random() * (2000 - 1500)) + 1500;
+      
+    }else if(this.level=='Mid-Senior'){
+     // all_Employees[i].randomSalary(1000,1500);
+     return Math.floor(Math.random() * (1500 - 1000)) + 1000;
+
+    }else{
+     // all_Employees[i].randomSalary(500,1000);
+     return Math.floor(Math.random() * (1000 - 500)) + 500;
+
+    }
   }
+//}
 
-let Senior_salary=(getRndInteger(1500,2000));
-let Mid_Senior_salary=(getRndInteger(1000,1500));
-let Junior_salary=(getRndInteger(500,1000));
 
-let employee1= new Employees("1000","Ghazi Samer","Administration","Senior","./pics/E2.png",Senior_salary);
-let employee2= new Employees("1001","Lana Ali","Finance","Senior","./pics/E1.jpg",Senior_salary);
-let employee3= new Employees("1002","Tamara Ayoub", "Marketing","Senior","./pics/E1.jpg",Senior_salary);
-let employee4= new Employees("1003","Safi Walid","Administration","Mid-Senior","./pics/E2.png",Mid_Senior_salary);
-let employee5= new Employees("1004","Omar Zaid","Development","Senior","./pics/E2.png",Senior_salary);
-let employee6= new Employees("1005","Rana Saleh","Development","Junior","./pics/E2.png",Junior_salary);
-let employee7= new Employees("1006","Hadi Ahmad","Finance","Mid-Senior","./pics/E2.png",Mid_Senior_salary);
+//Generate Id
+Employees.prototype.renderId=function(){
+ // for(let i=0; i<all_Employees.length; i++){
+    if(this.Department=='Finance'){
+     return  Math.floor(1000 + Math.random() * 100);
 
+      
+    }else if(this.Department=='Development'){
+      return  Math.floor(2000 + Math.random() * 100);
+
+
+    }else if(this.Department=='Administration'){
+      return  Math.floor(3000 + Math.random() * 100);
+
+    }else{
+      return  Math.floor(4000 + Math.random() * 100);
+
+    }
+  }
+//}
 
 
 Employees.prototype.renderTable=function(){
+  
+  let tr1=document.createElement('tr');
+  table.appendChild(tr1);
 
+
+let td1=document.createElement('td');
+  tr1.appendChild(td1);
+  td1.textContent=this.Department; 
+
+/*   for(let i=0; i<all_Employees.length; i++){
+    all_Employees[i]
+  }
+ */
+     let td2=document.createElement('td');
+  tr1.appendChild(td2);
+  td2.textContent=this.FullName; 
+
+} 
+function renderFun(){
+  for(let i=0; i<all_Employees.length; i++){
+//  console.log('hello')
+    all_Employees[i].renderTable();
+   
+  }
 }
+renderFun();
+
+//for (let grade of all_Employees.renderAll())
+  //  avg = (grade / all_Employees.renderAll().length) * all_Employees.renderAll().length
+//console.log(renderAll())
 
 

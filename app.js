@@ -2,53 +2,150 @@
 
 //create a constructor
 let all_Employees=[];
-function Employees(EmployeeID, FullName, Department, level, ImageURL, Salary){
-this.EmployeeID= EmployeeID;
+function Employees(FullName, Department, level, ImageURL){
+//this.EmployeeID= EmployeeID;
 this.FullName=FullName ;
 this.Department=Department ;
 this.level=level ;
 this.ImageURL=ImageURL ;
-this.Salary=Salary ;
+//this.Salary=Salary ;
 all_Employees.push(this)
 }
 
-//Generate a random salary
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+let EmployeeDiv=document.getElementById("Employees");
+let Form=document.getElementById("form");
+
+
+//let column=document.createElement("div");
+//let row=document.createElement("div");
+
+
+
+
+let employee1= new Employees("Ghazi Samer","Administration","Senior","assets/Ghazi.jpg");
+let employee2= new Employees("Lana Ali","Finance","Senior","assets/Lana.jpg");
+let employee3= new Employees("Tamara Ayoub	", "Marketing","Senior","assets/Tamara.jpg");
+let employee4= new Employees("Safi Walid","Administration","Mid-Senior","assets/Safi.jpg");
+let employee5= new Employees("Omar Zaid","Development","Senior","assets/Omar.jpg");
+let employee6= new Employees("Rana Saleh","Development","Junior","assets/Rana.jpg");
+let employee7= new Employees("Hadi Ahmad","Finance","Mid-Senior","assets/Hadi.jpg");
+
+
+
+Employees.prototype.renderAll=function(){
+ // for(let i=0; i<all_Employees.length; i++){
+    if(this.level=='Senior'){
+     // all_Employees[i].randomSalary(1500,2000);
+      return Math.floor(Math.random() * (2000 - 1500)) + 1500;
+      
+    }else if(this.level=='Mid-Senior'){
+     // all_Employees[i].randomSalary(1000,1500);
+     return Math.floor(Math.random() * (1500 - 1000)) + 1000;
+
+    }else{
+     // all_Employees[i].randomSalary(500,1000);
+     return Math.floor(Math.random() * (1000 - 500)) + 500;
+
+    }
   }
+//}
 
-let Senior_salary=(getRndInteger(1500,2000));
-let Mid_Senior_salary=(getRndInteger(1000,1500));
-let Junior_salary=(getRndInteger(500,1000));
 
-let employee1= new Employees("1000","Ghazi Samer","Administration","Senior","./pics/E2.png",Senior_salary);
-let employee2= new Employees("1001","Lana Ali","Finance","Senior","./pics/E1.jpg",Senior_salary);
-let employee3= new Employees("1002","Tamara Ayoub", "Marketing","Senior","./pics/E1.jpg",Senior_salary);
-let employee4= new Employees("1003","Safi Walid","Administration","Mid-Senior","./pics/E2.png",Mid_Senior_salary);
-let employee5= new Employees("1004","Omar Zaid","Development","Senior","./pics/E2.png",Senior_salary);
-let employee6= new Employees("1005","Rana Saleh","Development","Junior","./pics/E2.png",Junior_salary);
-let employee7= new Employees("1006","Hadi Ahmad","Finance","Mid-Senior","./pics/E2.png",Mid_Senior_salary);
 
+Employees.prototype.renderId=function(){
+ // for(let i=0; i<all_Employees.length; i++){
+    if(this.Department=='Finance'){
+     return  Math.floor(1000 + Math.random() * 100);
+
+      
+    }else if(this.Department=='Development'){
+      return  Math.floor(2000 + Math.random() * 100);
+
+
+    }else if(this.Department=='Administration'){
+      return  Math.floor(3000 + Math.random() * 100);
+
+    }else{
+      return  Math.floor(4000 + Math.random() * 100);
+
+    }
+  }
+//}
 
 
 //create render function
 Employees.prototype.render=function(){
- //    document.write(`<p><b>Employee Name:</b> ${this.FullName},  <b>Employee Salay: </b> ${this.Salary} </p>`);
- let header=document.createElement("h4");
- header.textContent=this.FullName
+/*   let card=document.createElement('div');
+  card.setAttribute('class','card');
+  EmployeeDiv.appendChild(card);
+ */
+
+     
+
+  let image=document.createElement('img');
+  image.setAttribute('src',this.ImageURL)
+  EmployeeDiv.appendChild(image);
+  image.style.width='100px';
+  image.style.height='100px';
+
+
+   let Name=document.createElement('p');
+   Name.textContent=`Employee Name: ${this.FullName} - ID ${this.renderId()} `;
+   //Name.style.fontSize="20px";
+   EmployeeDiv.appendChild(Name);
+   let Department=document.createElement('p');
+   Department.textContent=`Department: ${this.Department} - level ${this.level} `;
+   EmployeeDiv.appendChild(Department);
+   let salary=document.createElement('p');
+   salary.textContent=`Salary: ${this.renderAll()}`;
+   EmployeeDiv.appendChild(salary);
     
-   
+
+
 }
 
-/* employee1.render();
-employee2.render();
-employee3.render();
-employee4.render();
-employee5.render();
-employee6.render();
-employee7.render(); */
+for(let i=0; i<all_Employees.length; i++){
+  all_Employees[i].render();
+}
+
+Form.addEventListener("submit", handelSubmit);
+
+function handelSubmit(event){
+event.preventDefault();
+//console.log(event);
+let fullName=event.target.fname.value;
+let Department=event.target.Departments.value;
 
 
+let level=event.target.Levels.value;
 
+let Image=event.target.image.value;
 
-console.log(all_Employees);
+let newEmp=new Employees (fullName,Department,level,Image);
+newEmp.render();
+saveData(all_Employees);
+}
+
+function saveData(Data){
+  let stringObj=JSON.stringify(Data);
+  localStorage.setItem("Employees",stringObj);
+}
+
+function getData(){
+  let retriveData=localStorage.getItem("Employees");
+  let arrayData=JSON.parse(retriveData);
+  console.log(arrayData);
+
+  for(let i=0;i<arrayData.length;i++){
+    var element=new Employees(
+      arrayData[i].fullName,
+      arrayData[i].Department,
+      arrayData[i].level,
+      arrayData[i].Image
+  
+    );
+  }
+  element.render();
+}
+
+getData();
