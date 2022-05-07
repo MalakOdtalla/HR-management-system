@@ -7,126 +7,133 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>>HR-management-system</title>
     <style>
-        h1 {
-  color: navy;
- /* margin-left: 20px;*/
-  text-align: center;
-  text-transform:uppercase;
+      h1 {
+color: navy;
+/* margin-left: 20px;*/
+text-align: center;
+text-transform:uppercase;
 }
 
 
 
 .navbar {
 
- 
-    background-color: #dddddd;
-    text-align: center;
-    padding: 20px;
-   /* margin: 0 20rem;*/
+
+  background-color: #dddddd;
+  text-align: center;
+  padding: 20px;
+ /* margin: 0 20rem;*/
+
 
   
-    
-  }
-  nav a {
-    padding: 10px;
-   
-  }
+}
+nav a {
+  padding: 10px;
+ 
+}
 
-          footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 5%;
-    background-color: #dddddd;
-    color: navy;
-    text-align: center;
- }
-        .fa {
-          padding: 0px;
-          font-size: 30px;
-          width: 30px;
-          text-align: center;
-          text-decoration: none;
-          margin: 5px 2px;
-        }
-        
-        .fa:hover {
-            opacity: 0.7;
-        }
-        
-        .fa-facebook {
-          background: #3B5998;
-          color: white;
-        }
-        
-        
-        .fa-linkedin {
-          background: #007bb5;
-          color: white;
-        }
+        footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #dddddd;
+  color: navy;
+  text-align: center;
+}
+      .fa {
+        padding: 0px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+      }
+      
+      .fa:hover {
+          opacity: 0.7;
+      }
+      
+      .fa-facebook {
+        background: #3B5998;
+        color: white;
+      }
+      
+      
+      .fa-linkedin {
+        background: #007bb5;
+        color: white;
+      }
 
-        
+      
+      .card {
+padding: .2rem;
+border: 1px solid black;
+margin: 1rem;
+text-align: center;
+}
+      
 
-        
-
-        </style>
+      </style>
 </head>
 
 <body>
-    <header>
+  <header>
+
+        <nav class="navbar" >
+
+          <a href="./index.html">Home</a>
+          <a href="./accounting.html">Accounting</a>
+
+        </nav>
+
+        <h1>HR-management-system</h1> 
+    </header>
+    <main id="headerMain">
+      
+
+     
+    
+   
+<fieldset>
+  <form id="form">
+      <label for="fname">Full Name:</label><br>
+      <input type="text" id="fname" name="fname"><br>
+
   
-          <nav class="navbar" >
-  
-            <a href="./index.html">Home</a>
-            <a href="./accounting.html">Accounting</a>
-  
-          </nav>
-  
-          <h1>HR-management-system</h1> 
-      </header>
-      <main id="headerMain">
-        
+      <label for="Department">Choose your Department:</label><br>
+      <select id="Departments" name="Departments">
+       <option value="Administration">Administration</option>
+       <option value="Marketing">Marketing</option>
+       <option value="Development">Development</option>
+       <option value="Finance">Finance</option>
+     </select><br>
+     <label for="Level">Choose your Level:</label><br>
+     <select id="Levels" name="Level">
+      <option value="Junior">Junior</option>
+      <option value="Mid-Senior">Mid-Senior</option>
+      <option value="Senior">Senior</option>
+    </select><br>
 
-            <div class="card"> </div>
-          
-         
+      <br>
+      <label for="image">Image URL</label><br>
+      <input type="text" id="image" name="image"><br>
+      <br>
 
-        <form id="form">
-            <label for="fname">Full Name:</label>
-            <input type="text" id="fname" name="fname"><br>
+     <input type="submit" value="Submit"> 
 
-        
-            <label for="Department">Choose your Department:</label>
-            <select id="Departments" name="Departments">
-             <option value="Administration">Administration</option>
-             <option value="Marketing">Marketing</option>
-             <option value="Development">Development</option>
-             <option value="Finance">Finance</option>
-           </select><br>
-           <label for="Level">Choose your Level:</label>
-           <select id="Levels" name="Level">
-            <option value="Junior">Junior</option>
-            <option value="Mid-Senior">Mid-Senior</option>
-            <option value="Senior">Senior</option>
-          </select><br>
+ </form>
+</fieldset>
 
-            <br>
-            <label for="image">image</label>
-            <input type="text" id="image" name="image"><br>
-            <br>
 
-           <input type="submit" value="Submit"> 
-
-       </form>
-       <div id="Employees"></div>
-      </main>
-      <footer>
-        <a href="#" class="fa fa-facebook"></a>
-        <a href="#" class="fa fa-linkedin"></a><br/>
-        <p> copyright 2022</p> 
-      </footer>
-        
+<fieldset><div id="Employees"></div></fieldset> 
+</main>
+<script src="./app.js">
+</script>
+    <footer>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-linkedin"></a><br/>
+      <p> copyright 2022</p> 
+    </footer>
 </body>
-<script src="./app.js"></script> 
 </html>
