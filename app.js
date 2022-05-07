@@ -16,7 +16,9 @@ let EmployeeDiv=document.getElementById("Employees");
 let Form=document.getElementById("form");
 
 
-//let column=document.getElementById("div");
+//let column=document.createElement("div");
+//let row=document.createElement("div");
+
 
 
 
@@ -68,16 +70,15 @@ Employees.prototype.renderId=function(){
   }
 //}
 
-//let row=document.createElement("div");
 
 //create render function
 Employees.prototype.render=function(){
-/*   let card=document.createElement('div');
+  let card=document.createElement('div');
   card.setAttribute('class','card');
-  row.appendChild(card); */
+  EmployeeDiv.appendChild(card);
 
 
-  
+     
 
   let image=document.createElement('img');
   image.setAttribute('src',this.ImageURL)
