@@ -13,11 +13,8 @@ all_Employees.push(this)
 }
 
 let EmployeeDiv=document.getElementById("Employees");
+
 let Form=document.getElementById("form");
-
-
-//let column=document.createElement("div");
-//let row=document.createElement("div");
 
 
 
@@ -75,16 +72,16 @@ Employees.prototype.renderId=function(){
 
 //create render function
 Employees.prototype.render=function(){
-/*   let card=document.createElement('div');
+ let card=document.createElement('div');
   card.setAttribute('class','card');
   EmployeeDiv.appendChild(card);
- */
+ 
 
      
 
   let image=document.createElement('img');
   image.setAttribute('src',this.ImageURL)
-  EmployeeDiv.appendChild(image);
+  card.appendChild(image);
   image.style.width='100px';
   image.style.height='100px';
 
@@ -92,13 +89,13 @@ Employees.prototype.render=function(){
    let Name=document.createElement('p');
    Name.textContent=`Employee Name: ${this.FullName} - ID ${this.renderId()} `;
    //Name.style.fontSize="20px";
-   EmployeeDiv.appendChild(Name);
+   card.appendChild(Name);
    let Department=document.createElement('p');
    Department.textContent=`Department: ${this.Department} - level ${this.level} `;
-   EmployeeDiv.appendChild(Department);
+   card.appendChild(Department);
    let salary=document.createElement('p');
    salary.textContent=`Salary: ${this.renderAll()}`;
-   EmployeeDiv.appendChild(salary);
+   card.appendChild(salary);
     
 
 
@@ -127,8 +124,9 @@ saveData(all_Employees);
 }
 
 function saveData(Data){
-  let stringObj=JSON.stringify(Data);
-  localStorage.setItem("Employees",stringObj);
+let stringObj=JSON.stringify(Data);
+localStorage.setItem("Employees",stringObj);
+ 
 }
 
 function getData(){
