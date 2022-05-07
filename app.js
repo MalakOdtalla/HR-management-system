@@ -77,7 +77,7 @@ Employees.prototype.render=function(){
   row.appendChild(card); */
 
 
-
+  
 
   let image=document.createElement('img');
   image.setAttribute('src',this.ImageURL)
