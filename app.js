@@ -70,11 +70,5 @@ Employees.prototype.render=function(){
 for(let i=0; i<all_Employees.length; i++){
   all_Employees[i].render();
 }
-/* employee1.render();
-employee2.render();
-employee3.render();
-employee4.render();
-employee5.render();
-employee6.render();
-employee7.render(); */
 
+//console.log( all_Employees);
